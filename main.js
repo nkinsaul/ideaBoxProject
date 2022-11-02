@@ -9,7 +9,10 @@ var newCardInput = document.getElementById('card-body');
 
 //👇🏻  Event Listeners
 
-saveButton.addEventListener('click', createIdea);
+saveButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    checkInputFields();
+});
 
 //👇🏻 Global Variables
 
@@ -18,11 +21,21 @@ var newIdeas;
 
 //👇🏻 Functions
 
-function createIdea(event) {
-    event.preventDefault();
-    newIdeas = new Idea(titleInput.value, bodyInput.value)
+
+function checkInputFields () {
+    if (titleInput.value && bodyInput.value) {
+        runSavedIdea();
+    }
+}
+
+function runSavedIdea() {
+    createIdea();
     addToList(newIdeas);
     displayCard();
+}
+
+function createIdea() {
+    newIdeas = new Idea(titleInput.value, bodyInput.value)
 }
 
 function addToList(newIdeas) {
