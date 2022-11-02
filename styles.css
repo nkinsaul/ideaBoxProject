@@ -26,6 +26,7 @@ aside > h1 {
     color: #E9E9F3;
     border-bottom:#353567 solid 5px;
     padding-left:30px;
+    padding-bottom: 20px;
     font-family: 'Open Sans';
     font-weight: bold;
     width: 90%;
@@ -35,16 +36,22 @@ aside > h1 {
     height: 123px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     width: 100%;
     padding-left: 30px;
+    padding-bottom: 20px;
+    border-bottom:#353567 solid 5px;
 }
 
 .starred-ideas-heading {
     /* font-weight: lighter; */
-    font-family: 'Open Sans, Light';
+    /* font-family: 'Open Sans, Light'; */
     color: #BFBFDD;
+    font-size: medium;
+    font-weight: lighter;
+    font-family: 'Open Sans';
+    /* color: #BFBFDD; */
     font-size: medium;
 }
 .starred-ideas-button {
@@ -54,6 +61,7 @@ aside > h1 {
     padding: 10px;
     width: 85%;
     font-size: larger;
+    border: 0px;
 }
 
 /* .starred-ideas-heading {
@@ -66,7 +74,7 @@ aside > h1 {
 
 body {
     height: 100vh;
-    background-color: bisque;
+    /* background-color: bisque; */
     display: flex;
     flex-direction: row;
     margin: 0;
@@ -93,6 +101,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #A9AAD2;
     /* text-align: center; */
 }
 
@@ -105,38 +114,58 @@ form {
     text-align: center;
     width: 40%;
 }
+.title-wrapper,
+.body-wrapper {
+    display:flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width:100%;
+}
 
 .user-title {
+    font-family: "Open Sans";
+    font-weight: lighter;
     height: 30px;
     width: 100%;
   }
   
   .user-body {
+    font-family: "Open Sans";
+    font-weight: lighter;
     height: 60px;
     width: 100%;
   }
 
   /* .search */
-.search-section{
+.search-section {
     display:flex;
     align-items: center;
+    width: 100%;
 }
 
 .save-button {
     width: 100%;
     background-color: #1F1F3D;
-    color: #E9E9F3
+    color: #E9E9F3;
+    padding: 10px;
+    font-size: larger;
 }
 
 .search-button {
     background-image: url(/assets/search.svg);
     background-color: #1F1F3D;
-    width: 30px;
-    height: 30px;
+    width: 20%;
+    height: 50px;
 }
 
+.search-button > img {
+    height:25px;
+}
 .search-bar {
     width: 200%;
+    height: 45px;
+    font-family: 'Open Sans';
+    font-weight: lighter;
 }
 
 .idea-card-grid {
@@ -167,6 +196,7 @@ form {
 
 .card-body {
     background-color: #FFFFFF;
+    padding-left: 10px;
 }
 
 .idea-message {
@@ -176,9 +206,11 @@ form {
 .card-footer {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
     background-color: #5356A4;
     height: 5vh;
+    width: 100%;
 }
 
 .star-button {
