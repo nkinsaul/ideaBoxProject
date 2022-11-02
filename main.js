@@ -4,16 +4,15 @@
 var titleInput = document.getElementById('user-title');
 var bodyInput = document.getElementById('user-body');
 var saveButton = document.getElementById('save-button');
-var cardSection = document.getElementById('idea-card1');
+var cardSection = document.getElementById('idea-card-grid');
+var newCardInput = document.getElementById('card-body');
 
 //👇🏻  Event Listeners
 
 saveButton.addEventListener('click', createIdea);
-//might need to prevent default on this ^^
 
 //👇🏻 Global Variables
-//need an empty variable that will hold all of the instances of 
-//our card class
+
 var userIdeas = [];
 var newIdeas;
 
@@ -23,6 +22,7 @@ function createIdea(event) {
     event.preventDefault();
     newIdeas = new Idea(titleInput.value, bodyInput.value)
     addToList(newIdeas);
+    displayCard();
 }
 
 function addToList(newIdeas) {
@@ -30,7 +30,31 @@ function addToList(newIdeas) {
 }
 
 function displayCard() {
-
+    cardSection.innerHTML += 
+    `<section class="idea-card" id="idea-card1">
+        <div class="card-header">
+            <button class="star-button">
+                <img class="in-active-star" src="./assets/star.svg">
+                <img class="active-star hidden" src="./assets/star-active.svg">
+            </button>
+            <button class="delete-button">
+                <img class="inactive-delete" src="./assets/delete.svg">
+                <img class="active-delete hidden" src="./assets/delete-active.svg">
+            </button>
+        </div>
+        <div class="card-body" id="card-body">
+            <h1 class="idea-title">${newIdeas.title}</h1>
+            <p class="idea-message">
+                ${newIdeas.body}
+            </p>
+        </div>
+        <div class="card-footer">
+            <button class="comment-button">
+                <img class="add-comment" src="./assets/comment.svg">
+            </button>
+            <h2 class="idea-comment">Comment</h2>
+        </div>
+    </section>`
 }
 
 
