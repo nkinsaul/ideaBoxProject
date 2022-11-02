@@ -5,11 +5,6 @@
     font-weight: bold;
 }
 
-/* .starred-ideas-heading {
-    font-weight: lighter;
-    font-family: 'Open Sans';
-    color: #BFBFDD;
-} */
 
 aside {
     height: 100vh;
@@ -18,7 +13,6 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* padding-left: 30px; */
     align-items: flex-start;
 }
 
@@ -45,13 +39,10 @@ aside > h1 {
 }
 
 .starred-ideas-heading {
-    /* font-weight: lighter; */
-    /* font-family: 'Open Sans, Light'; */
     color: #BFBFDD;
     font-size: medium;
     font-weight: lighter;
     font-family: 'Open Sans';
-    /* color: #BFBFDD; */
     font-size: medium;
 }
 .starred-ideas-button {
@@ -64,17 +55,8 @@ aside > h1 {
     border: 0px;
 }
 
-/* .starred-ideas-heading {
-    color: #BFBFDD;
-} */
-
-/* .starred-ideas-button {
-    background-color: #5356A4;
-} */
-
 body {
     height: 100vh;
-    /* background-color: bisque; */
     display: flex;
     flex-direction: row;
     margin: 0;
@@ -86,14 +68,6 @@ body {
     width: 100%;
 }
 
-/* .idea-entry {
-    height: 40vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #A9AAD2;
-} */
 .form-section {
     height: 40vh;
     display:flex;
@@ -102,7 +76,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #A9AAD2;
-    /* text-align: center; */
 }
 
 form {
@@ -114,6 +87,7 @@ form {
     text-align: center;
     width: 40%;
 }
+
 .title-wrapper,
 .body-wrapper {
     display:flex;
@@ -161,6 +135,7 @@ form {
 .search-button > img {
     height:25px;
 }
+
 .search-bar {
     width: 200%;
     height: 45px;
@@ -175,7 +150,6 @@ form {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     padding: 20px;
-     /* width: 100%; */
 }
 
 .idea-card {
