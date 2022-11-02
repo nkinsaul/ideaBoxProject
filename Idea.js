@@ -6,10 +6,12 @@ class Idea {
         this.id = Date.now();
         this.star = false;
     }
-
     updateIdea() {
-        // when the star button is clicked
-        //set this.star to true
+        if (this.star === false) {
+            this.star = true;
+        } else if (this.star === true) {
+            this.star = false;
+        }
     }
 }
 

@@ -1,8 +1,5 @@
-//query select for the title input box
-//query select for the body input box
-//query select for the save button
-//add event listener for the save button
 
+//👇🏻  Query Selectors here
 
 var titleInput = document.getElementById('title');
 //change this id ^^ later 
@@ -11,14 +8,24 @@ var bodyInput = document.getElementById('body');
 var saveButton = document.querySelector('.save-button');
 //add id to this ^^ later
 
+//👇🏻  Event Listeners
+
 saveButton.addEventListener('click', createIdeaCard);
 //might need to prevent default on this ^^
 
+//👇🏻 Global Variables
+//need an empty variable that will hold all of the instances of 
+//our card class
+var userIdeas = [];
 
-function createIdeaCard() {
-    // event.preventDefault();
+
+//👇🏻 Functions
+
+function createIdeaCard(event) {
+    event.preventDefault();
     console.log('hi');
 }
+
 
 
 
