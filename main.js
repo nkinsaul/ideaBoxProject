@@ -1,12 +1,10 @@
 
 //👇🏻  Query Selectors here
 
-var titleInput = document.getElementById('title');
-//change this id ^^ later 
-var bodyInput = document.getElementById('body');
-//change this id ^^ later 
-var saveButton = document.querySelector('.save-button');
-//add id to this ^^ later
+var titleInput = document.getElementById('user-title');
+var bodyInput = document.getElementById('user-body');
+var saveButton = document.getElementById('save-button');
+var cardSection = document.getElementById('idea-card1');
 
 //👇🏻  Event Listeners
 
@@ -24,9 +22,16 @@ var newIdeas;
 function createIdea(event) {
     event.preventDefault();
     newIdeas = new Idea(titleInput.value, bodyInput.value)
+    addToList(newIdeas);
 }
 
+function addToList(newIdeas) {
+    userIdeas.push(newIdeas);
+}
 
+function displayCard() {
+
+}
 
 
 
