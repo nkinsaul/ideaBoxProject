@@ -1,196 +1,66 @@
 <!DOCTYPE html>
-
 <html lang="en-US">
-
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="styleSheet" href="styles.css">
-    <link href="" rel="styleSheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link rel="styleSheet" href="styles.css">
+    <title>IdeaBox</title>
 </head>
-
-
 <body>
-    <aside>
-        <div class="side-container" id="left-column">
-            <div id="left-header">
-                <h1 class="idea-box-heading">IdeaBox</h1>
-            </div>
-            <div class="starred-ideas">
-                <h2 class="starred-ideas-heading">Filter Starred Ideas</h2>
-                <button class="starred-ideas-button">Show Starred Ideas</button>
-            </div>
-        </div>
+    <aside class="side-bar-container">
+        <h1>IdeaBox</h1>
+        <section class="starred-ideas">
+            <h2 class="starred-ideas-heading">Filter Starred Ideas</h2>
+            <button class="starred-ideas-button">Show Starred Ideas</button>
+        </section>
     </aside>
-    <section class="main-container">
-        <form class="idea-entry">
-            <section class="wrapper">
+    <main class="main-container">
+        <section class="form-section">
+            <form>
                 <label for="title">Title</label>
                 <input class="user-title" type="text" id="title">
                 <label for="body">Body</label>
-                <input class="user-body" type="body" id="body">
+                <input class="user-body" type="text" id="body">
                 <button class="save-button">Save</button>
                 <div class="search-section">
                     <button class="search-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.45 14.55">
-                            <defs>
-                                <style>
-                                    .cls-1 {
-                                        fill: #e9e9f3;
-                                    }
-                                </style>
-                            </defs>
-                            <title>ideabox-2019Artboard 39</title>
-                            <g id="text_and_icons" data-name="text and icons">
-                                <path class="cls-1"
-                                    d="M11.77,14.31a1.32,1.32,0,0,1-1-.4L8.2,11.31a5.79,5.79,0,1,1,1.86-9.43h0A5.79,5.79,0,0,1,11.31,8.2l2.6,2.61a1.35,1.35,0,0,1,0,1.93l-1.17,1.17A1.36,1.36,0,0,1,11.77,14.31ZM8.56,8.83l3.21,3.22.28-.28L8.84,8.56l.39-.67A3.78,3.78,0,1,0,7.89,9.23Z" />
-                            </g>
-                        </svg>
+                        <img src="/assets/search.svg">
                     </button>
                     <input class="search-bar" type="text" id="search" placeholder="Search ideas">
                 </div>
-            </section>
-        </form>
-
+            </form>
+        </section>
         <section class="idea-card-grid">
-            <div class="idea-card" id="idea-card1">
+            <section class="idea-card" id="idea-card1">
                 <div class="card-header">
                     <button class="star-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.93 16.49">
-                            <defs>
-                                <style>
-                                    .cls-1 {
-                                        fill: #f16139;
-                                    }
-                                </style>
-                            </defs>
-                            <title>Artboard 30</title>
-                            <g id="background">
-                                <polygon class="cls-1"
-                                    points="8.28 2.85 9.91 6.13 13.53 6.66 10.91 9.22 11.53 12.83 8.28 11.13 5.04 12.83 5.66 9.22 3.03 6.66 6.66 6.13 8.28 2.85" />
-                            </g>
-                        </svg>
+                        <img class="in-active-star" src="/assets/star.svg">
+                        <img class="active-star hidden" src="/assets/star-active.svg">
                     </button>
                     <button class="delete-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.18 17.72">
-                            <defs>
-                                <style>
-                                    .cls-1 {
-                                        fill: #fff;
-                                    }
-                                </style>
-                            </defs>
-                            <title>Artboard 31</title>
-                            <g id="background">
-                                <polygon class="cls-1"
-                                    points="13.13 5.87 12.43 5.16 8.97 8.61 5.53 5.16 4.82 5.87 8.27 9.32 4.82 12.77 5.53 13.48 8.97 10.03 12.43 13.48 13.13 12.77 9.68 9.32 13.13 5.87" />
-                            </g>
-                        </svg>
+                        <img class="inactive-delete" src="/assets/delete.svg">
+                        <img class="active-delete hidden" src="/assets/delete-active.svg">
                     </button>
                 </div>
                 <div class="card-body">
                     <h1 class="idea-title">Idea Title</h1>
-                    <p class="idea-message">Idea body. Don't ever play yourself. Every chance I get, water the plants,
+                    <p class="idea-message">
+                        Idea body. Don't ever play yourself. Every chance I get, water the plants,
                         Lion!
-                        Cloth talk.</p>
+                        Cloth talk.
+                    </p>
                 </div>
                 <div class="card-footer">
                     <button class="comment-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.71 19.71">
-                            <defs>
-                                <style>
-                                    .cls-1 {
-                                        fill: #fff;
-                                        stroke: #353567;
-                                        stroke-miterlimit: 10;
-                                    }
-
-                                    .cls-2 {
-                                        fill: #353567;
-                                    }
-                                </style>
-                            </defs>
-                            <title>abacus-v1Artboard 41</title>
-                            <g id="background">
-                                <circle class="cls-1" cx="9.76" cy="9.76" r="5.58" />
-                                <polygon class="cls-2"
-                                    points="5.65 9.37 5.65 10.14 9.37 10.14 9.37 13.86 10.14 13.86 10.14 10.14 13.86 10.14 13.86 9.37 10.14 9.37 10.14 5.65 9.37 5.65 9.37 9.37 5.65 9.37" />
-                            </g>
-                        </svg>
+                        <img class="add-comment" src="/assets/comment.svg">
                     </button>
                     <h2 class="idea-comment">Comment</h2>
                 </div>
-            </div>
-            <div class="idea-card" id="idea-card2">
-                <div class="card-header">
-                    <img src="assets/star-active.svg" class="star-active-icon hidden" id="star-active-icon">
-                    <img src="assets/star.svg" class="star-icon hidden" id="star-icon">
-                    <img src="assets/delete.svg" class="delete-icon hidden" id="delete-icon">
-                </div>
-                <div class="card-body">
-                    <h1 class="idea-title">Idea Title</h1>
-                    <p class="idea-message">Idea body. Don't ever play yourself. Every chance I get, water the plants,
-                        Lion!
-                        Cloth talk.</p>
-                </div>
-                <div class="card-footer">
-                    <h2 class="idea-comment">Comment</h2>
-                </div>
-            </div>
-            <div class="idea-card" id="idea-card">
-                <div class="card-header">
-                    <img src="assets/star-active.svg" class="star-active-icon hidden" id="star-active-icon">
-                    <img src="assets/star.svg" class="star-icon hidden" id="star-icon">
-                    <img src="assets/delete.svg" class="delete-icon hidden" id="delete-icon">
-                </div>
-                <div class="card-body">
-                    <h1 class="idea-title">Idea Title</h1>
-                    <p class="idea-message">Idea body. Don't ever play yourself. Every chance I get, water the plants,
-                        Lion!
-                        Cloth talk.</p>
-                </div>
-                <div class="card-footer">
-                    <img src="assets/comment.svg" class="comment-icon hidden" id="comment-icon">
-                    <h2 class="idea-comment">Comment</h2>
-                </div>
-            </div>
-            <div class="idea-card" id="idea-card4">
-                <div class="card-header">
-                    <img src="assets/star-active.svg" class="star-active-icon hidden" id="star-active-icon">
-                    <img src="assets/star.svg" class="star-icon hidden" id="star-icon">
-                    <img src="assets/delete.svg" class="delete-icon hidden" id="delete-icon">
-                </div>
-                <div class="card-body">
-                    <h1 class="idea-title">Idea Title</h1>
-                    <p class="idea-message">Idea body. Don't ever play yourself. Every chance I get, water the plants,
-                        Lion!
-                        Cloth talk.</p>
-                </div>
-                <div class="card-footer">
-                    <img src="assets/comment.svg" class="comment-icon hidden" id="comment-icon">
-                    <h2 class="idea-comment">Comment</h2>
-                </div>
-            </div>
-            <div class="idea-card" id="idea-card5">
-                <div class="card-header">
-                    <img src="assets/star-active.svg" class="star-active-icon hidden" id="star-active-icon">
-                    <img src="assets/star.svg" class="star-icon hidden" id="star-icon">
-                    <img src="assets/delete.svg" class="delete-icon hidden" id="delete-icon">
-                </div>
-                <div class="card-body">
-                    <h1 class="idea-title">Idea Title</h1>
-                    <p class="idea-message">Idea body. Don't ever play yourself. Every chance I get, water the plants,
-                        Lion!
-                        Cloth talk.</p>
-                </div>
-                <div class="card-footer">
-                    <img src="assets/comment.svg" class="comment-icon hidden" id="comment-icon">
-                    <h2 class="idea-comment">Comment</h2>
-                </div>
-            </div>
+            </section>   
         </section>
-    </section>
+    </main>
+    <script type="text/javascript" src="Idea.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 </body>
-
 </html>
