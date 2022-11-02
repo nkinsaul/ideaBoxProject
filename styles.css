@@ -12,7 +12,20 @@
 aside {
     height: 100vh;
     width: 25%;
-    background-color: aquamarine;
+    background-color: #1F1F3D;
+}
+
+.idea-box-heading,
+.starred-ideas-button {
+    color: #E9E9F3;
+}
+
+.starred-ideas-heading {
+    color: #BFBFDD;
+}
+
+.starred-ideas-button {
+    background-color: #5356A4;
 }
 
 body {
@@ -44,8 +57,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: purple;
+    background-color: #A9AAD2;
     text-align: center;
+}
+
+.save-button {
+    background-color: #1F1F3D;
+    color: #E9E9F3
 }
 
 .search-button {
@@ -55,7 +73,7 @@ body {
 }
 
 .idea-card-grid {
-    background-color: orange;
+    background-color: #EAEAF4;
     width: 100%;
     height: 60vh;
     display: grid;
@@ -81,14 +99,18 @@ body {
 }
 
 .card-body {
-    background-color: azure;
+    background-color: #FFFFFF;
+}
+
+.idea-message {
+    font-weight: lighter;
 }
 
 .card-footer {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    background-color: #A9AAD2;
+    background-color: #5356A4;
     height: 5vh;
 }
 
@@ -107,10 +129,14 @@ body {
 }
 
 .comment-button {
-    background-color: #A9AAD2;
+    background-color: #5356A4;
     width: 40px;
     height: 40px;
     border: none;
+}
+
+.idea-comment {
+    color: #E9E9F3;
 }
 
 .hidden {
