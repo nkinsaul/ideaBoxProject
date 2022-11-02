@@ -10,20 +10,20 @@ var saveButton = document.querySelector('.save-button');
 
 //👇🏻  Event Listeners
 
-saveButton.addEventListener('click', createIdeaCard);
+saveButton.addEventListener('click', createIdea);
 //might need to prevent default on this ^^
 
 //👇🏻 Global Variables
 //need an empty variable that will hold all of the instances of 
 //our card class
 var userIdeas = [];
-
+var newIdeas;
 
 //👇🏻 Functions
 
-function createIdeaCard(event) {
+function createIdea(event) {
     event.preventDefault();
-    console.log('hi');
+    newIdeas = new Idea(titleInput.value, bodyInput.value)
 }
 
 
