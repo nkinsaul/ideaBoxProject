@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+.starred-ideas-heading {
+    font-weight: lighter;
+}
+
+aside > .main-container {
+   margin: 10px;
+}
+
+.side-container {
+    height: 100vh;
+    background-color: aquamarine;
+}
+
+body {
+    height: 100vh;
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+}
