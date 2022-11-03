@@ -16,10 +16,10 @@ aside {
     align-items: flex-start;
 }
 
-aside > h1 {
+aside>h1 {
     color: #E9E9F3;
-    border-bottom:#353567 solid 5px;
-    padding-left:30px;
+    border-bottom: #353567 solid 5px;
+    padding-left: 30px;
     padding-bottom: 20px;
     font-family: 'Open Sans';
     font-weight: bold;
@@ -35,7 +35,7 @@ aside > h1 {
     width: 100%;
     padding-left: 30px;
     padding-bottom: 20px;
-    border-bottom:#353567 solid 5px;
+    border-bottom: #353567 solid 5px;
 }
 
 .starred-ideas-heading {
@@ -45,6 +45,7 @@ aside > h1 {
     font-family: 'Open Sans';
     font-size: medium;
 }
+
 .starred-ideas-button {
     color: #E9E9F3;
     font-family: 'Open Sans, Bold';
@@ -70,8 +71,8 @@ body {
 
 .form-section {
     height: 40vh;
-    display:flex;
-    width:100%;
+    display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -90,10 +91,10 @@ form {
 
 .title-wrapper,
 .body-wrapper {
-    display:flex;
+    display: flex;
     align-items: flex-start;
     flex-direction: column;
-    width:100%;
+    width: 100%;
 }
 
 .user-title {
@@ -101,18 +102,18 @@ form {
     font-weight: lighter;
     height: 30px;
     width: 100%;
-  }
-  
-  .user-body {
+}
+
+.user-body {
     font-family: "Open Sans";
     font-weight: lighter;
     height: 60px;
     width: 100%;
-  }
+}
 
-  /* .search */
+/* .search */
 .search-section {
-    display:flex;
+    display: flex;
     align-items: center;
     width: 100%;
 }
@@ -123,6 +124,7 @@ form {
     color: #E9E9F3;
     padding: 10px;
     font-size: larger;
+    cursor: pointer;
 }
 
 .save-button-disabled {
@@ -131,6 +133,7 @@ form {
     color: #E9E9F3;
     padding: 10px;
     font-size: larger;
+    cursor: not-allowed;
 }
 
 .search-button {
@@ -140,8 +143,8 @@ form {
     height: 50px;
 }
 
-.search-button > img {
-    height:25px;
+.search-button>img {
+    height: 25px;
 }
 
 .search-bar {

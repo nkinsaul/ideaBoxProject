@@ -12,8 +12,8 @@ var newCardInput = document.getElementById('card-body');
 
 window.addEventListener('load', disableButton);
 
-titleInput.addEventListener('input', enableButton);
-bodyInput.addEventListener('input', enableButton);
+titleInput.addEventListener('input', toggleSaveButton);
+bodyInput.addEventListener('input', toggleSaveButton);
 
 saveButton.addEventListener('click', function (event) {
     event.preventDefault();
@@ -30,6 +30,14 @@ var newIdeas;
 //when user clicks save button check to see 
 //if both values are present 
 
+function toggleSaveButton() {
+    if (titleInput.value && bodyInput.value) {
+        enableButton();
+    } else {
+        disableButton();
+    }
+}
+
 function disableButton() {
     disableSaveButton.disabled = true;
     saveButton.classList.add('hidden')
@@ -39,20 +47,18 @@ function disableButton() {
 }
 
 function enableButton() {
-    if (titleInput.value && bodyInput.value){
-        saveButton.disabled = false
-        saveButton.classList.remove('hidden')
-        disableSaveButton.classList.add('hidden')
-    }
+    saveButton.disabled = false
+    saveButton.classList.remove('hidden')
+    disableSaveButton.classList.add('hidden')
 }
 
-function checkInputFields () {
+function checkInputFields() {
     if (titleInput.value && bodyInput.value) {
         runSavedIdea();
         titleInput.value = "";
         bodyInput.value = "";
-    // } else {
-    //     saveButton.disable = true;
+        // } else {
+        //     saveButton.disable = true;
     }
 }
 
@@ -71,8 +77,8 @@ function addToList(newIdeas) {
 }
 
 function displayCard() {
-    cardSection.innerHTML += 
-    `<section class="idea-card" id="idea-card1">
+    cardSection.innerHTML +=
+        `<section class="idea-card" id="idea-card1">
         <div class="card-header">
             <button class="star-button">
                 <img class="in-active-star" src="./assets/star.svg">
@@ -96,7 +102,7 @@ function displayCard() {
             <h2 class="idea-comment">Comment</h2>
         </div>
     </section>`
-    disableButton() 
+    disableButton()
 }
 
 
