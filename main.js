@@ -20,6 +20,7 @@ saveButton.addEventListener('click', function (event) {
     checkInputFields();
 });
 
+cardSection.addEventListener("click", deleteCard)
 //👇🏻 Global Variables
 
 var userIdeas = [];
@@ -77,35 +78,44 @@ function addToList(newIdeas) {
 }
 
 function displayCard() {
-    cardSection.innerHTML +=
-        `<section class="idea-card" id="idea-card1">
-        <div class="card-header">
-            <button class="star-button">
-                <img class="in-active-star" src="./assets/star.svg">
-                <img class="active-star hidden" src="./assets/star-active.svg">
-            </button>
-            <button class="delete-button">
-                <img class="inactive-delete" src="./assets/delete.svg">
-                <img class="active-delete hidden" src="./assets/delete-active.svg">
-            </button>
-        </div>
-        <div class="card-body" id="card-body">
-            <h1 class="idea-title">${newIdeas.title}</h1>
-            <p class="idea-message">
-                ${newIdeas.body}
-            </p>
-        </div>
-        <div class="card-footer">
-            <button class="comment-button">
-                <img class="add-comment" src="./assets/comment.svg">
-            </button>
-            <h2 class="idea-comment">Comment</h2>
-        </div>
-    </section>`
+    for (var i = 0; i < userIdeas.length; i++) {
+        cardSection.innerHTML +=
+            `<section class="idea-card" id="${userIdeas[i].id}">
+            <div class="card-header">
+                <button class="star-button">
+                    <img class="in-active-star" src="./assets/star.svg">
+                    <img class="active-star hidden" src="./assets/star-active.svg">
+                </button>
+                <button class="delete-button">
+                    <img class="inactive-delete" src="./assets/delete.svg">
+                    <img class="active-delete hidden" src="./assets/delete-active.svg">
+                </button>
+            </div>
+            <div class="card-body" id="card-body">
+                <h1 class="idea-title">${userIdeas[i].title}</h1>
+                <p class="idea-message">
+                    ${userIdeas[i].body}
+                </p>
+            </div>
+            <div class="card-footer">
+                <button class="comment-button">
+                    <img class="add-comment" src="./assets/comment.svg">
+                </button>
+                <h2 class="idea-comment">Comment</h2>
+            </div>
+        </section>`
+    }
     disableButton()
 }
 
+function deleteCard(event) {
+    // console.log(event.target.className)
+    if(event.target.className === "inactive-delete") {
+        // console.log(event.target.className)
 
+    }
+    
+}
 
 
 //query select the parent class of the buttons
