@@ -21,12 +21,15 @@ var newIdeas;
 
 //👇🏻 Functions
 
+//when user clicks save button check to see if both values are present 
 
 function checkInputFields () {
     if (titleInput.value && bodyInput.value) {
         runSavedIdea();
         titleInput.value = "";
         bodyInput.value = "";
+    // } else {
+    //     saveButton.disable = true;
     }
 }
 
