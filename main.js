@@ -78,6 +78,7 @@ function addToList(newIdeas) {
 }
 
 function displayCard() {
+    cardSection.innerHTML = ""
     for (var i = 0; i < userIdeas.length; i++) {
         cardSection.innerHTML +=
             `<section class="idea-card" id="${userIdeas[i].id}">
@@ -110,13 +111,21 @@ function displayCard() {
 
 function deleteCard(event) {
     // console.log(event.target.className)
-    if(event.target.className === "inactive-delete") {
-        // console.log(event.target.className)
-
+    for(var i = 0; i < userIdeas.length; i++) {
+        if(Number(event.target.id) === userIdeas[i].id) {
+            console.log("hey ids match")
+            userIdeas.splice(i, 1)
+        }
     }
-    
+   displayCard()
 }
-
+// we want click the x 
+//find the id of that element 
+//check the id of that element to the id to the array
+//convert that number to a sting
+//compare them
+//remove that element from the array
+//run the display function again
 
 //query select the parent class of the buttons
 //set the event handler for the button
