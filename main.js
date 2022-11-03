@@ -25,6 +25,8 @@ var newIdeas;
 function checkInputFields () {
     if (titleInput.value && bodyInput.value) {
         runSavedIdea();
+        titleInput.value = "";
+        bodyInput.value = "";
     }
 }
 
