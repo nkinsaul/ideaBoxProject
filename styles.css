@@ -125,6 +125,14 @@ form {
     font-size: larger;
 }
 
+.save-button-disabled {
+    width: 100%;
+    background-color: #c4c3d0;
+    color: #E9E9F3;
+    padding: 10px;
+    font-size: larger;
+}
+
 .search-button {
     background-image: url(/assets/search.svg);
     background-color: #1F1F3D;

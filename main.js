@@ -4,10 +4,16 @@
 var titleInput = document.getElementById('user-title');
 var bodyInput = document.getElementById('user-body');
 var saveButton = document.getElementById('save-button');
+var disableSaveButton = document.getElementById('save-button-disabled')
 var cardSection = document.getElementById('idea-card-grid');
 var newCardInput = document.getElementById('card-body');
 
 //👇🏻  Event Listeners
+
+window.addEventListener('load', disableButton);
+
+titleInput.addEventListener('input', enableButton);
+bodyInput.addEventListener('input', enableButton);
 
 saveButton.addEventListener('click', function (event) {
     event.preventDefault();
@@ -21,7 +27,24 @@ var newIdeas;
 
 //👇🏻 Functions
 
-//when user clicks save button check to see if both values are present 
+//when user clicks save button check to see 
+//if both values are present 
+
+function disableButton() {
+    disableSaveButton.disabled = true;
+    saveButton.classList.add('hidden')
+    disableSaveButton.classList.remove('hidden')
+
+    //when button is disabled we want to switch color of button
+}
+
+function enableButton() {
+    if (titleInput.value && bodyInput.value){
+        saveButton.disabled = false
+        saveButton.classList.remove('hidden')
+        disableSaveButton.classList.add('hidden')
+    }
+}
 
 function checkInputFields () {
     if (titleInput.value && bodyInput.value) {
@@ -73,6 +96,7 @@ function displayCard() {
             <h2 class="idea-comment">Comment</h2>
         </div>
     </section>`
+    disableButton() 
 }
 
 
