@@ -109,16 +109,35 @@ function displayCard() {
     disableButton()
 }
 
+
 function deleteCard(event) {
     // console.log(event.target.className)
+    // removeCard(event)
     for(var i = 0; i < userIdeas.length; i++) {
         if(Number(event.target.id) === userIdeas[i].id) {
             console.log("hey ids match")
             userIdeas.splice(i, 1)
-        }
+         }
     }
-   displayCard()
+
+    if(event.target.classList.contains("inactive-delete")) {
+        
+        event.target.closest(".idea-card").remove()
+    }
+    
 }
+
+// function removeCard(event) {
+    // if(event.target.className === "inactive-delete")
+//     for(var i = 0; i < userIdeas.length; i++) {
+//         if(Number(event.target.id) === userIdeas[i].id) {
+//             console.log("hey ids match")
+//             userIdeas.splice(i, 1)
+//         }
+//     }
+//     displayCard()
+// }
+// -------Pseudocode----//
 // we want click the x 
 //find the id of that element 
 //check the id of that element to the id to the array
