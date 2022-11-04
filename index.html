@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link rel="styleSheet" href="styles.css">
+    <title>IdeaBox</title>
+</head>
+<body>
+    <aside class="side-bar-container">
+        <h1>IdeaBox</h1>
+        <section class="starred-ideas">
+            <h2 class="starred-ideas-heading">Filter Starred Ideas</h2>
+            <button class="starred-ideas-button">Show Starred Ideas</button>
+        </section>
+    </aside>
+    <main class="main-container">
+        <section class="form-section">
+            <form>
+                <div class="title-wrapper">
+                    <label for="title">Title</label>
+                    <input class="user-title" type="text" id="user-title">
+                </div>
+                <div class="body-wrapper">
+                    <label for="body">Body</label>
+                    <input class="user-body" type="text" id="user-body">
+                </div>
+                <button class="save-button" id="save-button">Save</button>
+                <button class="save-button-disabled hidden" id="save-button-disabled">Save</button>
+                <div class="search-section">
+                    <button class="search-button">
+                        <img src="./assets/search.svg">
+                    </button>
+                    <input class="search-bar" type="text" id="search" placeholder="Search ideas">
+                </div>
+            </form>
+        </section>
+        <section class="idea-card-grid" id="idea-card-grid">
+        </section>
+    </main>
+    <script type="text/javascript" src="Idea.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
