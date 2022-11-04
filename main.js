@@ -7,6 +7,7 @@ var disableSaveButton = document.getElementById('save-button-disabled')
 var cardSection = document.getElementById('idea-card-grid');
 var newCardInput = document.getElementById('card-body');
 
+
 //👇🏻  Event Listeners
 
 window.addEventListener('load', disableButton);
@@ -29,6 +30,7 @@ cardSection.addEventListener("click", function(event){
 
 var userIdeas = [];
 var newIdeas;
+var starImage;
 
 //👇🏻 Functions
 
@@ -39,6 +41,7 @@ function toggleSaveButton() {
         disableButton();
     }
 }
+
 
 function disableButton() {
     disableSaveButton.disabled = true;
@@ -77,12 +80,12 @@ function addToList(newIdeas) {
 function displayCard() {
     cardSection.innerHTML = ""
     for (var i = 0; i < userIdeas.length; i++) {
+        getThisStarShitToWork(i)
         cardSection.innerHTML +=
             `<section class="idea-card" id="${userIdeas[i].id}">
             <div class="card-header">
                 <button class="star-button">
-                    <img class="inactive-star" src="./assets/star.svg" id="${userIdeas[i].id}">
-                    <img class="active-star hidden" src="./assets/star-active.svg">
+                    <img class="inactive-star" src=${starImage} id="${userIdeas[i].id}">
                 </button>
                 <button class="delete-button">
                     <img class="inactive-delete" id="${userIdeas[i].id}">
@@ -123,6 +126,16 @@ function starIdea(event) {
                 userIdeas[i].updateIdea()
             }
         }
-    }
+    } 
     displayCard();
+}
+
+function getThisStarShitToWork (index){
+    if (userIdeas[index].star === true){
+        starImage = "./assets/star-active.svg"
+        return starImage
+    } else if (userIdeas[index].star === false) {
+        starImage = "./assets/star.svg"
+        return starImage
+    }
 }
