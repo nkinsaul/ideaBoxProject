@@ -1,4 +1,3 @@
-
 //👇🏻  Query Selectors here
 
 var titleInput = document.getElementById('user-title');
@@ -28,9 +27,6 @@ var newIdeas;
 
 //👇🏻 Functions
 
-//when user clicks save button check to see 
-//if both values are present 
-
 function toggleSaveButton() {
     if (titleInput.value && bodyInput.value) {
         enableButton();
@@ -43,8 +39,6 @@ function disableButton() {
     disableSaveButton.disabled = true;
     saveButton.classList.add('hidden')
     disableSaveButton.classList.remove('hidden')
-
-    //when button is disabled we want to switch color of button
 }
 
 function enableButton() {
@@ -58,8 +52,6 @@ function checkInputFields() {
         runSavedIdea();
         titleInput.value = "";
         bodyInput.value = "";
-        // } else {
-        //     saveButton.disable = true;
     }
 }
 
@@ -88,7 +80,7 @@ function displayCard() {
                     <img class="active-star hidden" src="./assets/star-active.svg">
                 </button>
                 <button class="delete-button">
-                    <img class="inactive-delete" src="./assets/delete.svg">
+                    <img class="inactive-delete" src="./assets/delete.svg" id="${userIdeas[i].id}">
                     <img class="active-delete hidden" src="./assets/delete-active.svg">
                 </button>
             </div>
@@ -109,34 +101,17 @@ function displayCard() {
     disableButton()
 }
 
-
 function deleteCard(event) {
-    // console.log(event.target.className)
-    // removeCard(event)
-    for(var i = 0; i < userIdeas.length; i++) {
-        if(Number(event.target.id) === userIdeas[i].id) {
-            console.log("hey ids match")
-            userIdeas.splice(i, 1)
-         }
+    if (event.target.className === "inactive-delete") {
+        for (var i = 0; i < userIdeas.length; i++) {
+            if (Number(event.target.id) === userIdeas[i].id) {
+                userIdeas.splice(i, 1)
+            }
+        }
     }
-
-    if(event.target.classList.contains("inactive-delete")) {
-        
-        event.target.closest(".idea-card").remove()
-    }
-    
+    displayCard();
 }
 
-// function removeCard(event) {
-    // if(event.target.className === "inactive-delete")
-//     for(var i = 0; i < userIdeas.length; i++) {
-//         if(Number(event.target.id) === userIdeas[i].id) {
-//             console.log("hey ids match")
-//             userIdeas.splice(i, 1)
-//         }
-//     }
-//     displayCard()
-// }
 // -------Pseudocode----//
 // we want click the x 
 //find the id of that element 
@@ -151,29 +126,19 @@ function deleteCard(event) {
 //check for button click
 //when the unique star button is clicked, change it to red
 
+// function deleteCard(event) {
+//     // console.log(event.target.className)
+//     // removeCard(event)
+//     for (var i = 0; i < userIdeas.length; i++) {
+//         if (Number(event.target.id) === userIdeas[i].id) {
+//             console.log("hey ids match")
+//             userIdeas.splice(i, 1)
+//         }
+//     }
 
+//     if (event.target.classList.contains("inactive-delete")) {
 
-// var addNewButton = document.querySelector('.add-new');
-// var parent = document.querySelector('.parent');
+//         event.target.closest(".idea-card").remove()
+//     }
 
-// addNewButton.addEventListener('click', createButton);
-
-// function showAlert() {
-//   alert('You clicked me!');
 // }
-
-// function createButton() {
-//   var newButton = document.createElement('button');
-//   newButton.className = 'click-me';
-//   newButton.innerText = "New click me button!";
-//   parent.appendChild(newButton);
-// }
-
-// parent.addEventListener('click', function (event) {
-//   if (event.target.className === 'click-me') {
-//     // do your action on your 'button' or whatever it is you're listening for
-//     showAlert();
-//   }
-
-//   //condition for dlete, star, comment buttons
-// });

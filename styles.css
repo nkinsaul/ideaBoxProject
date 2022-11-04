@@ -5,6 +5,9 @@
     font-weight: bold;
 }
 
+button {
+    cursor: pointer;
+}
 
 aside {
     height: 100vh;
