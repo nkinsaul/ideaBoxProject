@@ -80,8 +80,7 @@ function displayCard() {
                     <img class="active-star hidden" src="./assets/star-active.svg">
                 </button>
                 <button class="delete-button">
-                    <img class="inactive-delete" src="./assets/delete.svg" id="${userIdeas[i].id}">
-                    <img class="active-delete hidden" src="./assets/delete-active.svg">
+                    <img class="inactive-delete" id="${userIdeas[i].id}">
                 </button>
             </div>
             <div class="card-body" id="card-body">
@@ -111,34 +110,3 @@ function deleteCard(event) {
     }
     displayCard();
 }
-
-// -------Pseudocode----//
-// we want click the x 
-//find the id of that element 
-//check the id of that element to the id to the array
-//convert that number to a sting
-//compare them
-//remove that element from the array
-//run the display function again
-
-//query select the parent class of the buttons
-//set the event handler for the button
-//check for button click
-//when the unique star button is clicked, change it to red
-
-// function deleteCard(event) {
-//     // console.log(event.target.className)
-//     // removeCard(event)
-//     for (var i = 0; i < userIdeas.length; i++) {
-//         if (Number(event.target.id) === userIdeas[i].id) {
-//             console.log("hey ids match")
-//             userIdeas.splice(i, 1)
-//         }
-//     }
-
-//     if (event.target.classList.contains("inactive-delete")) {
-
-//         event.target.closest(".idea-card").remove()
-//     }
-
-// }

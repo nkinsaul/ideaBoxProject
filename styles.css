@@ -229,3 +229,14 @@ form {
 .hidden {
     display: none;
 }
+
+.inactive-delete {
+    background-image: url('./assets/delete.svg');
+    width: 28px;
+    height: 27.28px;
+
+}
+
+.inactive-delete:hover {
+    background-image: url('./assets/delete-active.svg');
+}
