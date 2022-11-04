@@ -14,12 +14,17 @@ window.addEventListener('load', disableButton);
 titleInput.addEventListener('input', toggleSaveButton);
 bodyInput.addEventListener('input', toggleSaveButton);
 
-saveButton.addEventListener('click', function (event) {
+saveButton.addEventListener('click', function(event) {
     event.preventDefault();
     checkInputFields();
 });
 
-cardSection.addEventListener("click", deleteCard)
+cardSection.addEventListener("click", function(event){
+    deleteCard(event);
+    starIdea(event);
+})
+
+
 //👇🏻 Global Variables
 
 var userIdeas = [];
@@ -76,7 +81,7 @@ function displayCard() {
             `<section class="idea-card" id="${userIdeas[i].id}">
             <div class="card-header">
                 <button class="star-button">
-                    <img class="in-active-star" src="./assets/star.svg">
+                    <img class="inactive-star" src="./assets/star.svg" id="${userIdeas[i].id}">
                     <img class="active-star hidden" src="./assets/star-active.svg">
                 </button>
                 <button class="delete-button">
@@ -105,6 +110,17 @@ function deleteCard(event) {
         for (var i = 0; i < userIdeas.length; i++) {
             if (Number(event.target.id) === userIdeas[i].id) {
                 userIdeas.splice(i, 1)
+            }
+        }
+    }
+    displayCard();
+}
+
+function starIdea(event) {
+    if (event.target.className === "inactive-star") {
+        for (var i = 0; i < userIdeas.length; i++) {
+            if (Number(event.target.id) === userIdeas[i].id) {
+                userIdeas[i].updateIdea()
             }
         }
     }
