@@ -6,7 +6,7 @@ var saveButton = document.getElementById('save-button');
 var disableSaveButton = document.getElementById('save-button-disabled')
 var cardSection = document.getElementById('idea-card-grid');
 var newCardInput = document.getElementById('card-body');
-
+var showStarredIdeasButton = document.getElementById('starred-ideas-button');
 
 //👇🏻  Event Listeners
 
@@ -25,12 +25,16 @@ cardSection.addEventListener("click", function(event){
     starIdea(event);
 })
 
+showStarredIdeasButton.addEventListener("click", function () {
+    togglePageView()
+})
 
 //👇🏻 Global Variables
 
 var userIdeas = [];
 var newIdeas;
 var starImage;
+var onHomePage = true;
 
 //👇🏻 Functions
 
@@ -79,6 +83,7 @@ function addToList(newIdeas) {
 
 function displayCard() {
     cardSection.innerHTML = ""
+    // console.log("Hey I'm refreshing")
     for (var i = 0; i < userIdeas.length; i++) {
         getThisStarShitToWork(i)
         cardSection.innerHTML +=
@@ -109,14 +114,16 @@ function displayCard() {
 }
 
 function deleteCard(event) {
+    console.log("Hey there")
     if (event.target.className === "inactive-delete") {
         for (var i = 0; i < userIdeas.length; i++) {
             if (Number(event.target.id) === userIdeas[i].id) {
                 userIdeas.splice(i, 1)
             }
         }
+        displayCard();
     }
-    displayCard();
+    // displayCard();
 }
 
 function starIdea(event) {
@@ -126,8 +133,9 @@ function starIdea(event) {
                 userIdeas[i].updateIdea()
             }
         }
+        displayCard();
     } 
-    displayCard();
+    // displayCard();
 }
 
 function getThisStarShitToWork(i) {
@@ -137,5 +145,51 @@ function getThisStarShitToWork(i) {
     } else if (userIdeas[i].star === false) {
         starImage = "./assets/star.svg"
         return starImage
+    }
+}
+
+function showStarredIdeas() {
+    cardSection.innerHTML = ""
+    for (var i = 0; i < userIdeas.length; i++) {
+        console.log("hello")
+        if(userIdeas[i].star) {
+            getThisStarShitToWork(i)
+            cardSection.innerHTML +=
+                `<section class="idea-card" id="${userIdeas[i].id}">
+                <div class="card-header">
+                    <button class="star-button">
+                        <img class="inactive-star" src=${starImage} id="${userIdeas[i].id}">
+                    </button>
+                    <button class="delete-button">
+                        <img class="inactive-delete" id="${userIdeas[i].id}">
+                    </button>
+                </div>
+                <div class="card-body" id="card-body">
+                    <h1 class="idea-title">${userIdeas[i].title}</h1>
+                    <p class="idea-message">
+                        ${userIdeas[i].body}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="comment-button">
+                        <img class="add-comment" src="./assets/comment.svg">
+                    </button>
+                    <h2 class="idea-comment">Comment</h2>
+                </div>
+            </section>`
+        }
+    }
+}
+
+function togglePageView() {
+    // onHomePage = false
+    if(onHomePage === true) {
+        onHomePage = false;
+        showStarredIdeasButton.innerText = "Show All Ideas"
+        showStarredIdeas()
+    } else if (onHomePage === false) {
+        onHomePage = true;
+        showStarredIdeasButton.innerText = "Show Starred Ideas" 
+        displayCard()
     }
 }
