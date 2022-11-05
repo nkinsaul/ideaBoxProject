@@ -130,11 +130,11 @@ function starIdea(event) {
     displayCard();
 }
 
-function getThisStarShitToWork (index){
-    if (userIdeas[index].star === true){
+function getThisStarShitToWork(i) {
+    if (userIdeas[i].star === true){
         starImage = "./assets/star-active.svg"
         return starImage
-    } else if (userIdeas[index].star === false) {
+    } else if (userIdeas[i].star === false) {
         starImage = "./assets/star.svg"
         return starImage
     }
