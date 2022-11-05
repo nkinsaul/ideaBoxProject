@@ -193,3 +193,24 @@ function togglePageView() {
         displayCard()
     }
 }
+
+//query select search bar
+//use key down event listener on search bar
+//function - for loop userIdeas[i].title.length
+//function - for loop userIdeas[i].body.length
+//compare the searchbar.value
+
+
+
+
+
+//conditional- if userIdeas. title || userIdeas.body 
+//userIdeas.includes searchbar.value
+
+
+
+//query select search bar
+//use key down event listener on search bar
+//for loop go through the userIdeas array
+//if in title  or in body we want to use .includes for conditional
+//innerhtml cardsection with the new cards that match search bar conditional
