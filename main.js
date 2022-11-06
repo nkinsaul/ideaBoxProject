@@ -7,6 +7,7 @@ var disableSaveButton = document.getElementById('save-button-disabled')
 var cardSection = document.getElementById('idea-card-grid');
 var newCardInput = document.getElementById('card-body');
 var showStarredIdeasButton = document.getElementById('starred-ideas-button');
+var searchBar = document.getElementById('search-bar');
 
 //👇🏻  Event Listeners
 
@@ -20,14 +21,16 @@ saveButton.addEventListener('click', function(event) {
     checkInputFields();
 });
 
-cardSection.addEventListener("click", function(event){
+cardSection.addEventListener('click', function(event){
     deleteCard(event);
     starIdea(event);
 })
 
-showStarredIdeasButton.addEventListener("click", function () {
+showStarredIdeasButton.addEventListener('click', function () {
     togglePageView()
 })
+
+searchBar.addEventListener('keyup', filterCards)
 
 //👇🏻 Global Variables
 
@@ -70,7 +73,7 @@ function checkInputFields() {
 function runSavedIdea() {
     createIdea();
     addToList(newIdeas);
-    displayCard();
+    displayCard(userIdeas);
 }
 
 function createIdea() {
@@ -81,25 +84,27 @@ function addToList(newIdeas) {
     userIdeas.push(newIdeas);
 }
 
-function displayCard() {
+function displayCard(array) {
     cardSection.innerHTML = ""
     // console.log("Hey I'm refreshing")
-    for (var i = 0; i < userIdeas.length; i++) {
-        getThisStarShitToWork(i)
+    for (var i = 0; i < array.length; i++) {
+        if(array === userIdeas){
+            getThisStarShitToWork(i)           
+        }
         cardSection.innerHTML +=
-            `<section class="idea-card" id="${userIdeas[i].id}">
+            `<section class="idea-card" id="${array[i].id}">
             <div class="card-header">
                 <button class="star-button">
-                    <img class="inactive-star" src=${starImage} id="${userIdeas[i].id}">
+                    <img class="inactive-star" src=${starImage} id="${array[i].id}">
                 </button>
                 <button class="delete-button">
-                    <img class="inactive-delete" id="${userIdeas[i].id}">
+                    <img class="inactive-delete" id="${array[i].id}">
                 </button>
             </div>
             <div class="card-body" id="card-body">
-                <h1 class="idea-title">${userIdeas[i].title}</h1>
+                <h1 class="idea-title">${array[i].title}</h1>
                 <p class="idea-message">
-                    ${userIdeas[i].body}
+                    ${array[i].body}
                 </p>
             </div>
             <div class="card-footer">
@@ -121,7 +126,7 @@ function deleteCard(event) {
                 userIdeas.splice(i, 1)
             }
         }
-        displayCard();
+        displayCard(userIdeas);
     }
     // displayCard();
 }
@@ -133,7 +138,7 @@ function starIdea(event) {
                 userIdeas[i].updateIdea()
             }
         }
-        displayCard();
+        displayCard(userIdeas);
     } 
     // displayCard();
 }
@@ -182,7 +187,6 @@ function showStarredIdeas() {
 }
 
 function togglePageView() {
-    // onHomePage = false
     if(onHomePage === true) {
         onHomePage = false;
         showStarredIdeasButton.innerText = "Show All Ideas"
@@ -190,27 +194,17 @@ function togglePageView() {
     } else if (onHomePage === false) {
         onHomePage = true;
         showStarredIdeasButton.innerText = "Show Starred Ideas" 
-        displayCard()
+        displayCard(userIdeas)
     }
 }
 
-//query select search bar
-//use key down event listener on search bar
-//function - for loop userIdeas[i].title.length
-//function - for loop userIdeas[i].body.length
-//compare the searchbar.value
-
-
-
-
-
-//conditional- if userIdeas. title || userIdeas.body 
-//userIdeas.includes searchbar.value
-
-
-
-//query select search bar
-//use key down event listener on search bar
-//for loop go through the userIdeas array
-//if in title  or in body we want to use .includes for conditional
-//innerhtml cardsection with the new cards that match search bar conditional
+function filterCards(){
+    var searchArray = [];
+    for(var i = 0; i < userIdeas.length; i++){
+        if(userIdeas[i].title.includes(searchBar.value.toLowerCase()) || userIdeas[i].body.includes(searchBar.value.toLowerCase())){
+                searchArray.push(userIdeas[i])
+            console.log(searchArray)
+        } 
+    }
+    displayCard(searchArray)
+}
