@@ -35,7 +35,7 @@ searchBar.addEventListener('keyup', filterCards)
 //👇🏻 Global Variables
 
 var userIdeas = [];
-
+// var starredIdeas = [];
 var newIdeas;
 var starImage;
 var onHomePage = true;
@@ -131,8 +131,12 @@ function deleteCard(event) {
 function starIdea(event) {
     if (event.target.className === "inactive-star") {
         for (var i = 0; i < userIdeas.length; i++) {
+            // var starredIdeaId = userIdeas[i].id
             if (Number(event.target.id) === userIdeas[i].id) {
                 userIdeas[i].updateIdea()
+                starredIdeas.push(userIdeas[i])
+            // } else if (userIdeas[i].star === false){
+                // starredIdeas.splice()
             }
         }
         displayCard(userIdeas);
