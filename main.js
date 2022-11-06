@@ -35,6 +35,7 @@ searchBar.addEventListener('keyup', filterCards)
 //👇🏻 Global Variables
 
 var userIdeas = [];
+
 var newIdeas;
 var starImage;
 var onHomePage = true;
@@ -48,7 +49,6 @@ function toggleSaveButton() {
         disableButton();
     }
 }
-
 
 function disableButton() {
     disableSaveButton.disabled = true;
@@ -86,7 +86,6 @@ function addToList(newIdeas) {
 
 function displayCard(array) {
     cardSection.innerHTML = ""
-    // console.log("Hey I'm refreshing")
     for (var i = 0; i < array.length; i++) {
         if(array === userIdeas){
             getThisStarShitToWork(i)           
@@ -119,7 +118,6 @@ function displayCard(array) {
 }
 
 function deleteCard(event) {
-    console.log("Hey there")
     if (event.target.className === "inactive-delete") {
         for (var i = 0; i < userIdeas.length; i++) {
             if (Number(event.target.id) === userIdeas[i].id) {
@@ -128,7 +126,6 @@ function deleteCard(event) {
         }
         displayCard(userIdeas);
     }
-    // displayCard();
 }
 
 function starIdea(event) {
@@ -140,7 +137,6 @@ function starIdea(event) {
         }
         displayCard(userIdeas);
     } 
-    // displayCard();
 }
 
 function getThisStarShitToWork(i) {
@@ -156,7 +152,6 @@ function getThisStarShitToWork(i) {
 function showStarredIdeas() {
     cardSection.innerHTML = ""
     for (var i = 0; i < userIdeas.length; i++) {
-        console.log("hello")
         if(userIdeas[i].star) {
             getThisStarShitToWork(i)
             cardSection.innerHTML +=
@@ -203,7 +198,6 @@ function filterCards(){
     for(var i = 0; i < userIdeas.length; i++){
         if(userIdeas[i].title.includes(searchBar.value.toLowerCase()) || userIdeas[i].body.includes(searchBar.value.toLowerCase())){
                 searchArray.push(userIdeas[i])
-            console.log(searchArray)
         } 
     }
     displayCard(searchArray)
