@@ -21,21 +21,20 @@ saveButton.addEventListener('click', function(event) {
     checkInputFields();
 });
 
-cardSection.addEventListener('click', function(event){
+cardSection.addEventListener('click', function(event) {
     deleteCard(event);
     starIdea(event);
-})
+});
 
-showStarredIdeasButton.addEventListener('click', function () {
-    togglePageView()
-})
+showStarredIdeasButton.addEventListener('click', function() {
+    togglePageView();
+});
 
-searchBar.addEventListener('keyup', filterCards)
+searchBar.addEventListener('keyup', filterCards);
 
 //👇🏻 Global Variables
 
 var userIdeas = [];
-// var starredIdeas = [];
 var newIdeas;
 var starImage;
 var onHomePage = true;
@@ -48,19 +47,19 @@ function toggleSaveButton() {
     } else {
         disableButton();
     }
-}
+};
 
 function disableButton() {
     disableSaveButton.disabled = true;
-    saveButton.classList.add('hidden')
-    disableSaveButton.classList.remove('hidden')
-}
+    saveButton.classList.add('hidden');
+    disableSaveButton.classList.remove('hidden');
+};
 
 function enableButton() {
-    saveButton.disabled = false
-    saveButton.classList.remove('hidden')
-    disableSaveButton.classList.add('hidden')
-}
+    saveButton.disabled = false;
+    saveButton.classList.remove('hidden');
+    disableSaveButton.classList.add('hidden');
+};
 
 function checkInputFields() {
     if (titleInput.value && bodyInput.value) {
@@ -68,30 +67,30 @@ function checkInputFields() {
         titleInput.value = "";
         bodyInput.value = "";
     }
-}
+};
 
 function runSavedIdea() {
     createIdea();
     addToList(newIdeas);
     displayCard(userIdeas);
-}
+};
 
 function createIdea() {
-    newIdeas = new Idea(titleInput.value, bodyInput.value)
-}
+    newIdeas = new Idea(titleInput.value, bodyInput.value);
+};
 
 function addToList(newIdeas) {
     userIdeas.push(newIdeas);
-}
+};
 
 function displayCard(array) {
-    cardSection.innerHTML = ""
+    cardSection.innerHTML = "";
     for (var i = 0; i < array.length; i++) {
-        if(array === userIdeas){
-            getThisStarShitToWork(i)           
+        if (array === userIdeas) {
+            getThisStarShitToWork(i);           
         }
         cardSection.innerHTML +=
-            `<section class="idea-card" id="${array[i].id}">
+        `<section class="idea-card" id="${array[i].id}">
             <div class="card-header">
                 <button class="star-button">
                     <img class="inactive-star" src=${starImage} id="${array[i].id}">
@@ -106,54 +105,50 @@ function displayCard(array) {
             </div>
             <div class="card-footer">
             </div>
-        </section>`
+        </section>`;
     }
-    disableButton()
-}
+    disableButton();
+};
 
 function deleteCard(event) {
     if (event.target.className === "delete-button") {
         for (var i = 0; i < userIdeas.length; i++) {
             if (Number(event.target.id) === userIdeas[i].id) {
-                userIdeas.splice(i, 1)
+                userIdeas.splice(i, 1);
             }
         }
         displayCard(userIdeas);
     }
-}
+};
 
 function starIdea(event) {
     if (event.target.className === "inactive-star") {
         for (var i = 0; i < userIdeas.length; i++) {
-            // var starredIdeaId = userIdeas[i].id
             if (Number(event.target.id) === userIdeas[i].id) {
-                userIdeas[i].updateIdea()
-                // starredIdeas.push(userIdeas[i])
-            // } else if (userIdeas[i].star === false){
-                // starredIdeas.splice()
+                userIdeas[i].updateIdea();
             }
         }
         displayCard(userIdeas);
     } 
-}
+};
 
 function getThisStarShitToWork(i) {
-    if (userIdeas[i].star === true){
-        starImage = "./assets/star-active.svg"
-        return starImage
+    if (userIdeas[i].star === true) {
+        starImage = "./assets/star-active.svg";
+        return starImage;
     } else if (userIdeas[i].star === false) {
-        starImage = "./assets/star.svg"
-        return starImage
+        starImage = "./assets/star.svg";
+        return starImage;
     }
-}
+};
 
 function showStarredIdeas() {
-    cardSection.innerHTML = ""
+    cardSection.innerHTML = "";
     for (var i = 0; i < userIdeas.length; i++) {
         if(userIdeas[i].star) {
-            getThisStarShitToWork(i)
+            getThisStarShitToWork(i);
             cardSection.innerHTML +=
-                `<section class="idea-card" id="${userIdeas[i].id}">
+            `<section class="idea-card" id="${userIdeas[i].id}">
                 <div class="card-header">
                     <button class="star-button">
                         <img class="inactive-star" src=${starImage} id="${userIdeas[i].id}">
@@ -168,32 +163,29 @@ function showStarredIdeas() {
                 </div>
                 <div class="card-footer">
                 </div>
-            </section>`
+            </section>`;
         }
     }
-}
+};
 
 function togglePageView() {
-    if(onHomePage === true) {
+    if (onHomePage === true) {
         onHomePage = false;
-        showStarredIdeasButton.innerText = "Show All Ideas"
-        showStarredIdeas()
+        showStarredIdeasButton.innerText = "Show All Ideas";
+        showStarredIdeas();
     } else if (onHomePage === false) {
         onHomePage = true;
-        showStarredIdeasButton.innerText = "Show Starred Ideas" 
-        displayCard(userIdeas)
+        showStarredIdeasButton.innerText = "Show Starred Ideas"; 
+        displayCard(userIdeas);
     }
-}
+};
 
-function filterCards(){
-    var searchArray = [];
-    for(var i = 0; i < userIdeas.length; i++){
-        if(userIdeas[i].title.includes(searchBar.value.toLowerCase()) || userIdeas[i].body.includes(searchBar.value.toLowerCase())){
-                searchArray.push(userIdeas[i])
+function filterCards() {
+    var searchFilter = [];
+    for (var i = 0; i < userIdeas.length; i++) {
+        if (userIdeas[i].title.includes(searchBar.value.toLowerCase()) || userIdeas[i].body.includes(searchBar.value.toLowerCase())) {
+            searchFilter.push(userIdeas[i]);
         } 
     }
-    displayCard(searchArray)
-}
-
-
-// <img class="inactive-delete" id="${array[i].id}">
+    displayCard(searchFilter);
+};
