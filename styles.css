@@ -51,7 +51,7 @@ aside>h1 {
 
 .starred-ideas-button {
     color: #E9E9F3;
-    font-family: 'Open Sans, Bold';
+    font-family: 'Open Sans';
     background-color: #5356A4;
     padding: 10px;
     width: 85%;
@@ -105,6 +105,7 @@ form {
     font-weight: lighter;
     height: 30px;
     width: 100%;
+    border:2px solid #5356A4;;
 }
 
 .user-body {
@@ -112,12 +113,13 @@ form {
     font-weight: lighter;
     height: 60px;
     width: 100%;
+    border: 2px solid #5356A4;;
 }
 
-/* .search */
 .search-section {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
 }
 
@@ -139,15 +141,15 @@ form {
     cursor: not-allowed;
 }
 
-.search-button {
-    background-image: url(/assets/search.svg);
+.search-icon-box {
     background-color: #1F1F3D;
     width: 20%;
-    height: 50px;
+    height: 51px;
 }
 
-.search-button>img {
-    height: 25px;
+.search-image {
+    padding-top: 14%;
+    width: 60%;
 }
 
 .search-bar {
@@ -155,6 +157,7 @@ form {
     height: 45px;
     font-family: 'Open Sans';
     font-weight: lighter;
+    border: 2px solid #5356A4;
 }
 
 .idea-card-grid {
@@ -171,6 +174,7 @@ form {
     flex-direction: column;
     justify-content: space-between;
     border: solid;
+    background-color: #FFFFFF;
 }
 
 .card-header {
@@ -203,40 +207,23 @@ form {
 
 .star-button {
     background-color: #1F1F3D;
-    width: 40px;
+    width: 50px;
     height: 40px;
     border: none;
 }
 
 .delete-button {
-    background-color: #1F1F3D;
+    background-image: url('./assets/delete.svg');
+    background-color: transparent;
     width: 40px;
     height: 40px;
     border: none;
 }
 
-.comment-button {
-    background-color: #5356A4;
-    width: 40px;
-    height: 40px;
-    border: none;
-}
-
-.idea-comment {
-    color: #E9E9F3;
+.delete-button:hover {
+    background-image: url('./assets/delete-active.svg');
 }
 
 .hidden {
     display: none;
-}
-
-.inactive-delete {
-    background-image: url('./assets/delete.svg');
-    width: 28px;
-    height: 27.28px;
-
-}
-
-.inactive-delete:hover {
-    background-image: url('./assets/delete-active.svg');
 }

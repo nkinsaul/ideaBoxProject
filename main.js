@@ -96,9 +96,7 @@ function displayCard(array) {
                 <button class="star-button">
                     <img class="inactive-star" src=${starImage} id="${array[i].id}">
                 </button>
-                <button class="delete-button">
-                    <img class="inactive-delete" id="${array[i].id}">
-                </button>
+                <button class="delete-button" id="${array[i].id}"></button>
             </div>
             <div class="card-body" id="card-body">
                 <h1 class="idea-title">${array[i].title}</h1>
@@ -107,10 +105,6 @@ function displayCard(array) {
                 </p>
             </div>
             <div class="card-footer">
-                <button class="comment-button">
-                    <img class="add-comment" src="./assets/comment.svg">
-                </button>
-                <h2 class="idea-comment">Comment</h2>
             </div>
         </section>`
     }
@@ -118,7 +112,7 @@ function displayCard(array) {
 }
 
 function deleteCard(event) {
-    if (event.target.className === "inactive-delete") {
+    if (event.target.className === "delete-button") {
         for (var i = 0; i < userIdeas.length; i++) {
             if (Number(event.target.id) === userIdeas[i].id) {
                 userIdeas.splice(i, 1)
@@ -134,7 +128,7 @@ function starIdea(event) {
             // var starredIdeaId = userIdeas[i].id
             if (Number(event.target.id) === userIdeas[i].id) {
                 userIdeas[i].updateIdea()
-                starredIdeas.push(userIdeas[i])
+                // starredIdeas.push(userIdeas[i])
             // } else if (userIdeas[i].star === false){
                 // starredIdeas.splice()
             }
@@ -164,9 +158,7 @@ function showStarredIdeas() {
                     <button class="star-button">
                         <img class="inactive-star" src=${starImage} id="${userIdeas[i].id}">
                     </button>
-                    <button class="delete-button">
-                        <img class="inactive-delete" id="${userIdeas[i].id}">
-                    </button>
+                    <button class="delete-button" id="${userIdeas[i].id}"></button>
                 </div>
                 <div class="card-body" id="card-body">
                     <h1 class="idea-title">${userIdeas[i].title}</h1>
@@ -175,10 +167,6 @@ function showStarredIdeas() {
                     </p>
                 </div>
                 <div class="card-footer">
-                    <button class="comment-button">
-                        <img class="add-comment" src="./assets/comment.svg">
-                    </button>
-                    <h2 class="idea-comment">Comment</h2>
                 </div>
             </section>`
         }
@@ -206,3 +194,6 @@ function filterCards(){
     }
     displayCard(searchArray)
 }
+
+
+// <img class="inactive-delete" id="${array[i].id}">
