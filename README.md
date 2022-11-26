@@ -1,6 +1,9 @@
 
 # ideaBoxProject
 
+### Page Link:
+https://nkinsaul.github.io/ideaBoxProject/
+
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
 We built a idea-taking app that allows the user to save, delete, and search their ideas using key words. User is able to favorite ideas and view them by clicking the Show-Starred Ideas button.
